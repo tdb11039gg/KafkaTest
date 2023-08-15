@@ -1,0 +1,14 @@
+spring:
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: test-group-id
+      auto-offset-reset: earliest
+      enable-auto-commit: true
+      auto-commit-interval: 10s
+      isolation-level: read-committed
+    producer:
+      transaction-id-prefix: tx-
+      properties:
+        "[enable.idempotence]": true
+        "[transactional.id]": tran-id-1
